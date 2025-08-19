@@ -90,7 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const itemTotal = item.price * quantity;
                 total += itemTotal;
                 const cartItemDiv = document.createElement('div');
-                cartItemDiv.innerHTML = `<p>${item.name} x${quantity} - Rp ${itemTotal.toLocaleString('id-ID')}</p>`;
+                cartItemDiv.classList.add('cart-item-row');
+                cartItemDiv.innerHTML = `
+                    <p>${item.name} x${quantity} - Rp ${itemTotal.toLocaleString('id-ID')}</p>
+                    <div class="cart-item-actions">
+                        <button class="remove-from-cart-btn" data-id="${itemId}">Hapus</button>
+                        <button class="decrease-qty-btn" data-id="${itemId}">-</button>
+                        <button class="increase-qty-btn" data-id="${itemId}">+</button>
+                    </div>
+                `;
                 cartItemsDiv.appendChild(cartItemDiv);
             }
         }
@@ -125,10 +133,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Event listener untuk tombol Hapus, +, - di modal
+    document.getElementById('cart-modal').addEventListener('click', (e) => {
+        const target = e.target;
+        if (target.classList.contains('remove-from-cart-btn')) {
+            const itemId = target.dataset.id;
+            delete cart[itemId];
+            renderCart();
+        } else if (target.classList.contains('increase-qty-btn')) {
+            const itemId = target.dataset.id;
+            if (cart[itemId]) {
+                cart[itemId]++;
+            }
+            renderCart();
+        } else if (target.classList.contains('decrease-qty-btn')) {
+            const itemId = target.dataset.id;
+            if (cart[itemId] > 1) {
+                cart[itemId]--;
+            } else {
+                delete cart[itemId];
+            }
+            renderCart();
+        }
+    });
+
     checkoutButton.addEventListener('click', () => {
         const customerName = document.getElementById('customer-name').value;
         
-        // Validasi: pastikan nama tidak kosong DAN keranjang tidak kosong
         if (!customerName) {
             alert('Mohon masukkan nama kamu sebelum memesan.');
             return;
