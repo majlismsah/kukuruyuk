@@ -1,15 +1,15 @@
 /* --- Dasar --- */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #f7f3ed;
-    color: #4a2c1a;
+    background-color: #F8F8F2; /* Warna latar belakang baru */
+    color: #282A3A; /* Warna teks baru */
     margin: 0;
     padding: 0;
 }
 
 /* --- Header --- */
 header {
-    background-color: #ec380b;
+    background-color: #282A3A; /* Warna header baru */
     color: white;
     padding: 15px;
     text-align: center;
@@ -26,11 +26,11 @@ h1 {
     position: fixed;
     bottom: 15px;
     right: 15px;
-    background-color: #8b4513;
-    color: white;
-    padding: 12px;
+    background-color: #44475A; /* Warna tombol keranjang baru */
+    color: #8BE9FD; /* Warna icon baru */
+    padding: 8px; /* Padding lebih kecil */
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 1.2em; /* Ukuran font lebih kecil */
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     z-index: 100;
@@ -43,7 +43,7 @@ h1 {
 
 h2 {
     font-size: 1.1em;
-    border-bottom: 2px solid #8b4513;
+    border-bottom: 2px solid #44475A;
     padding-bottom: 4px;
     margin-bottom: 12px;
 }
@@ -51,7 +51,7 @@ h2 {
 /* --- Grid Menu --- */
 .menu-items {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);  /* 🔹 default 4 kolom bahkan di HP */
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     justify-items: center;
 }
@@ -64,7 +64,7 @@ h2 {
     text-align: center;
     padding: 8px;
     width: 100%;
-    max-width: 120px;   /* biar proporsional */
+    max-width: 120px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -77,7 +77,7 @@ h2 {
 
 .menu-item img {
     width: 100%;
-    height: 70px;   /* kecil biar muat di HP */
+    height: 70px;
     object-fit: cover;
     border-radius: 6px;
     margin-bottom: 6px;
@@ -94,10 +94,10 @@ h2 {
     font-size: 0.75em;
 }
 
-/* --- Tombol --- */
+/* --- Tombol Tambah Keranjang --- */
 .add-to-cart-btn {
-    background-color: #8b4513;
-    color: white;
+    background-color: #44475A;
+    color: #8BE9FD;
     border: none;
     padding: 6px;
     border-radius: 6px;
@@ -108,7 +108,7 @@ h2 {
 }
 
 .add-to-cart-btn:hover {
-    background-color: #6d330c;
+    background-color: #282A3A;
 }
 
 /* --- Modal Keranjang --- */
@@ -133,6 +133,7 @@ h2 {
     width: 95%;
     max-width: 400px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
 }
 
 .close-button {
@@ -141,20 +142,81 @@ h2 {
     font-size: 24px;
     font-weight: bold;
 }
+
 .close-button:hover,
 .close-button:focus {
     color: #000;
     cursor: pointer;
 }
 
+/* --- Tampilan Item di Keranjang --- */
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 8px 0;
+}
+
+.cart-item-actions button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
+.cart-item-actions .decrease-qty-btn,
+.cart-item-actions .increase-qty-btn {
+    background-color: #44475A;
+}
+
+/* --- Tombol Pesan Sekarang --- */
+#checkout-button {
+    background-color: #44475A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    margin-top: 15px;
+}
+
+#checkout-button:hover {
+    background-color: #282A3A;
+}
+
+/* --- Input Nama Pemesan --- */
+.customer-name-input {
+    margin: 15px 0;
+}
+
+.customer-name-input label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.customer-name-input input {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 /* --- Tablet & Desktop lebih lega --- */
 @media (min-width: 768px) {
     .menu-items {
-        grid-template-columns: repeat(5, 1fr); /* tablet: 5 kolom */
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 @media (min-width: 1024px) {
     .menu-items {
-        grid-template-columns: repeat(6, 1fr); /* laptop: 6 kolom */
+        grid-template-columns: repeat(6, 1fr);
     }
 }
