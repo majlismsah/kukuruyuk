@@ -159,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     checkoutButton.addEventListener('click', () => {
         const customerName = document.getElementById('customer-name').value;
+        const paymentMethodElement = document.querySelector('input[name="payment-method"]:checked');
         
         if (!customerName) {
             alert('Mohon masukkan nama kamu sebelum memesan.');
@@ -170,11 +171,16 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        let orderList = `Halo, saya mau pesan (Nama: ${customerName}):\n\n`;
+        // Ambil nilai metode pembayaran
+        const paymentMethod = paymentMethodElement ? paymentMethodElement.value : 'Tidak diketahui';
+
+        // Buat pesan WhatsApp dengan format baru
+        let orderList = `Assalamualaikum Kang, ane mau order\n\n`;
+        orderList += `Menu yang dipesan:\n`;
         for (const itemId in cart) {
             const item = menu.find(i => i.id === itemId);
             if (item) {
-                orderList += `${item.name} (${cart[itemId]}x)\n`;
+                orderList += `• ${item.name} (${cart[itemId]}x)\n`;
             }
         }
         
@@ -183,11 +189,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return sum + (item.price * cart[itemId]);
         }, 0);
         
-        orderList += `\nTotal: Rp ${total.toLocaleString('id-ID')}`;
-        orderList += `\n\nPembayaran via QRIS.`;
+        orderList += `\nTotal Harga: Rp ${total.toLocaleString('id-ID')}`;
+        orderList += `\nMetode Pembayaran: ${paymentMethod}`;
+        orderList += `\n\nAtas Nama: ${customerName}`;
 
         // GANTI 'NOMOR_WA_ANDA' dengan nomor WhatsApp kasir
-        const phoneNumber = '6285946240118'; 
+        const phoneNumber = '6285946420118';
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderList)}`;
         
         window.open(whatsappUrl, '_blank');
