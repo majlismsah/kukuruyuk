@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warung Kukuruyuk - Majlis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>WARUNG KUKURUYUK</h1>
+        <p>Sedia Makanan & Minuman, Silahkan Order</p>
+        <div class="cart-icon">
+            🛒 <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="menu-category">
+            <h2>🔥 Minuman Panas</h2>
+            <div class="menu-items" id="minuman-panas-items"></div>
+        </div>
+
+        <div class="menu-category">
+            <h2>❄️ Minuman Dingin</h2>
+            <div class="menu-items" id="minuman-dingin-items"></div>
+        </div>
+
+        <div class="menu-category">
+            <h2>🍜 Indomie & Makanan Berat</h2>
+            <div class="menu-items" id="indomie-items"></div>
+        </div>
+
+        <div class="menu-category">
+            <h2>🍿 Cemilan & Gorengan</h2>
+            <div class="menu-items" id="cemilan-items"></div>
+        </div>
+    </main>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Keranjang Belanja</h2>
+            <div id="cart-items"></div>
+
+            <div class="customer-name-input">
+                <label for="customer-name">Nama Pemesan:</label>
+                <input type="text" id="customer-name" placeholder="Masukkan nama kamu">
+            </div>
+
+            <p>Total: Rp <span id="cart-total">0</span></p>
+            <button id="checkout-button">Pesan Sekarang</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
