@@ -235,3 +235,20 @@ h2 {
         grid-template-columns: repeat(6, 1fr);
     }
 }
+/* --- Opsi Pembayaran --- */
+.payment-options {
+    text-align: left;
+    margin: 15px 0;
+}
+
+.payment-options p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.payment-options div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
