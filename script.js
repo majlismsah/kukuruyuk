@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
         orderList += `\n\nAtas Nama: ${customerName}`;
 
         // GANTI 'NOMOR_WA_ANDA' dengan nomor WhatsApp kasir
-        const phoneNumber = '6285946420118';
+        const phoneNumber = '6285946240118';
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderList)}`;
         
         window.open(whatsappUrl, '_blank');
