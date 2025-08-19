@@ -155,23 +155,38 @@ h2 {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #eee;
-    padding: 8px 0;
+    padding: 10px 0; /* Tambah padding agar ada ruang */
+}
+
+.cart-item-row p {
+    margin: 0;
+    flex-grow: 1; /* Biarkan teks mengisi ruang yang tersedia */
+    text-align: left; /* Ratakan teks ke kiri */
+}
+
+.cart-item-actions {
+    display: flex; /* Gunakan flexbox untuk mensejajarkan tombol */
+    align-items: center;
+    gap: 5px; /* Tambahkan jarak antar tombol */
 }
 
 .cart-item-actions button {
-    background-color: #f44336;
+    background-color: #f44336; /* Warna tombol Hapus */
     color: white;
     border: none;
-    padding: 4px 8px;
+    padding: 6px 10px; /* Sesuaikan padding agar ukuran tombol seragam */
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 5px;
     font-size: 0.8em;
+    min-width: 30px; /* Beri lebar minimum agar tombol (-) dan (+) tidak terlalu kecil */
 }
 
 .cart-item-actions .decrease-qty-btn,
 .cart-item-actions .increase-qty-btn {
     background-color: #44475A;
+    color: white;
+    min-width: 30px;
+    padding: 6px 6px;
 }
 
 /* --- Tombol Pesan Sekarang --- */
